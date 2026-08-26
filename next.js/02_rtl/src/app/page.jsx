@@ -1,10 +1,13 @@
 /*
 * 1. JEST 설치 npm install -D jest jest-environment-jsdom
-* 2. jest.config.js 설정
-* 3. package.json에 test script
-* 4. 모듈 작성(테스터블 하게)
-* 5. 테스트코드 작성
-* 5. npm run test
+* 2. React-Test-Library 설치
+* npm install -D @testing-library/react @testing-library/dom @testing-library/jest-dom @testing-library/user-event
+* 3. jest.config.js 설정
+* 4. jest.config.js 설정(test에서만 쓸 환경 설정)
+* 5. package.json에 test script
+* 6. 모듈 작성(테스터블 하게)
+* 7. 테스트코드 작성
+* 8. npm run test
 * */
 'use client';
 import {useState} from "react";
@@ -52,7 +55,7 @@ export default function App () {
             </select>
             <input type={"number"} name={"su2"} value={result.su2} onChange={setVal}/>
             <p><button onClick={calculate}>계산</button></p>
-            <h3>답 : {result.result}</h3>
+            <h3 data-testid="result">답 : {result.result}</h3>
         </div>
     )
 }
